@@ -1,0 +1,15 @@
+app: appDemo
+stage: dev
+
+component: asw
+name: asw-demo
+
+inputs:
+  src: ./
+  region: ap-guangzhou
+  name: asw-demo
+  definition: ./workflow.json
+  chineseName: chineseName
+  description: Created By Serverless
+  input: '{"key":"value"}'
+  role: asw-role # 请确保角色已经存在

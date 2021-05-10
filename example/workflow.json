@@ -1,0 +1,16 @@
+{
+	"Comment": "Serverless Demo",
+	"StartAt": "Hello",
+	"States": {
+		"Hello": {
+			"Type": "Pass",
+			"Comment": "传递",
+			"Next": "World"
+		},
+		"World": {
+			"Type": "Pass",
+			"Comment": "传递",
+			"End": true
+		}
+	}
+}
