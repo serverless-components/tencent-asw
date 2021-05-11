@@ -21,6 +21,9 @@ async function buildProject() {
 }
 
 async function deploy(options: { [propName: string]: any }) {
+  const stage = options.env || 'dev';
+  process.env.SERVERLESS_PLATFORM_STAGE = stage;
+
   const spinner = ora().start('Start deploying...\n');
 
   spinner.info(`[BUILD] Building project...`);
@@ -55,7 +58,8 @@ async function run() {
   program
     .description('Deploy components')
     .option('-d, --dev [dev]', 'deploy dev version component')
-    .option('-v, --version [version]', 'component version')
+    .option('-e, --env [env]', 'specify deploy environment: prod,dev', 'dev')
+    .option('-v, --ver [ver]', 'component version')
     .option('-ob, --onlyBuild [onlyBuild]', 'only build project', false)
     .action((options) => {
       deploy(options);
