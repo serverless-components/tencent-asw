@@ -12,7 +12,10 @@ component: asw # (必选) 组件名称
 name: asw-demo # 必选) 组件实例名称.
 
 inputs:
-  src: ./ # 指定当前需要上传的包含工作流配置文件的目录
+  src:
+    src: ./ # 指定当前需要上传的包含工作流配置文件的目录
+    exclude:
+      - .env
   region: ap-guangzhou # 云函数所在区域
   name: asw-demo
   definition: ./workflow.json

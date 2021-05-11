@@ -17,7 +17,7 @@
 ├── scripts                   # 自动化脚本
 ├── src                       # 组件代码
 ├── tsconfig.json
-├── typings                   # 类型声明
+├── typings                   # 类型声明 （主要提供自动化脚本使用）
 └── version.yml               # 记录组件版本号
 ```
 
@@ -31,7 +31,8 @@
 ├── interface             # 类型声明
 ├── package.json
 ├── serverless.ts         # 特意为 serverless component 准备的入口代码
-├── serverless-core.d     # @serverless/core 的类型声明（serverless 官方没有 ts 声明）
+├── typings
+|   └── serverless-core.d     # @serverless/core 的类型声明（serverless 官方没有 ts 声明）
 └── utils.ts              # 工具函数
 ```
 
@@ -50,7 +51,7 @@ $ yarn bootstrap
 
 ## 组件版本号更新
 
-当前已经发布的组件版本都维护在项目根目录的 `version.yml` 文件，我们可以通过 `yarn change:version` 命令来更新组件版本。
+组件版本维护在项目根目录的 `version.yml` 文件，我们可以通过 `yarn change:version` 命令来更新组件版本。
 
 比如更新组件版本号，递增方式为 `patch` ：
 
@@ -99,12 +100,6 @@ $ yarn deploy --version=1.0.0
 
 ```bash
 $ yarn deploy --dev
-```
-
-或者指定特定框架：
-
-```bash
-$ yarn deploy
 ```
 
 组件发布命令默认部署到 `dev` 环境，如果要发布到 `prod` 环境可以通过 `-e` 或者 `--env` 参数指定：
