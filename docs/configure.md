@@ -32,7 +32,7 @@ inputs:
 | ----------- | :--: | :---------- | :---------------------: | :----------------------------------------- |
 | region      |  否  | string      |     `ap-guangzhou`      | 工作流所在区域                             |
 | src         |  是  | [Src](#Src) |                         | 指定当前需要上传的包含工作流配置文件的目录 |
-| name        |  是  | string      |                         | 名称                                       |
+| name        |  是  | string      |                         | 工作流名称                                 |
 | definition  |  是  | string      |                         | 工作流配置 json 文件路径，或者 JSON 字符串 |
 | chineseName |  否  | string      |      `serverless`       | 中文名称                                   |
 | description |  否  | string      | `Created By Serverless` | 备注                                       |
@@ -47,7 +47,7 @@ inputs:
 
 通常 `asw` 组件的运行依赖 `SLS_QcsRole` 角色授权操作云端资源，如果需要使用本组件，需要给 `SLS_QcsRole` 角色添加 `QcloudASWFullAccess` 策略。
 
-使用此组件时，用户一般需要配置 `role` 参数，来指定创建的工作流依赖运行的角色，如果不配置该参数，组件会尝试创建符合条件的角色（角色命名规则为 `[配置参数name]_[账号AppId]_[8位随机应为字符]`），但是需要保证 `SLS_QcsRole` 角色含有创建角色策略 `QcloudCamRoleFullAccess`。
+使用此组件时，用户一般需要配置 `role` 参数，来指定创建的工作流依赖运行的角色，如果不配置该参数，组件会尝试创建符合条件的角色（角色命名规则为 `[工作流名称]_[账号AppId]_[8位随机应为字符]`），但是需要保证 `SLS_QcsRole` 角色含有创建角色策略 `QcloudCamRoleFullAccess`。
 
 ## Src
 
@@ -55,7 +55,7 @@ inputs:
 
 | 参数名称 | 是否必选 |   类型   | 默认值 | 描述                                       |
 | -------- | :------: | :------: | :----: | :----------------------------------------- |
-| src      |    否    |  string  |        | 代码路径。与 object 不能同时存在。         |
+| src      |    否    |  string  |        | json 配置文件路径                          |
 | exclude  |    否    | string[] |        | 不包含的文件或路径, 遵守 [glob 语法][glob] |
 
 <!-- links -->
