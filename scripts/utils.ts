@@ -28,6 +28,58 @@ export function getComponentConfig(version: string): ComponentConfig {
     actions: {
       deploy: {
         definition: 'Deploy',
+        inputs: {
+          src: {
+            type: 'src',
+            required: true,
+            description: 'Code path',
+          },
+          name: {
+            type: 'string',
+            required: true,
+            description: '工作流名称',
+          },
+          definition: {
+            type: 'string',
+            required: true,
+            description: '工作流配置 json 文件路径，或者 JSON 字符串',
+          },
+          roleArn: {
+            type: 'string',
+            required: true,
+            description: '运行角色 RoleArn',
+          },
+          region: {
+            type: 'string',
+            required: false,
+            description: '工作流所在区域',
+          },
+          chineseName: {
+            type: 'string',
+            required: false,
+            description: '中文名称',
+          },
+          description: {
+            type: 'string',
+            required: false,
+            description: '备注',
+          },
+          type: {
+            type: 'string',
+            required: false,
+            description: '工作流类型',
+          },
+          enableCls: {
+            type: 'boolean',
+            required: false,
+            description: '是否启动日志投递',
+          },
+          input: {
+            type: 'string',
+            required: false,
+            description: '默认运行参数',
+          },
+        },
       },
       remove: {
         definition: 'Remove',

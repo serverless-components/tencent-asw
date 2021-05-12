@@ -9,7 +9,7 @@ inputs:
   region: ap-guangzhou
   name: asw-demo
   definition: ./workflow.json
+  roleArn: qcs::cam::uin/100015854621:roleName/serverless-test-aws
   chineseName: chineseName
   description: Created By Serverless
   input: '{"key":"value"}'
-  role: asw-role # 请确保角色已经存在

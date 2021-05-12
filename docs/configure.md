@@ -19,10 +19,10 @@ inputs:
   region: ap-guangzhou # 云函数所在区域
   name: asw-demo
   definition: ./workflow.json
+  roleArn: qcs::cam::uin/100015854621:roleName/asw-demo_test
   chineseName: chineseName
   description: This is asw demo.
   type: STANDARD
-  role: asw-role
   enableCls: false
   input: '{"key":"value"}'
 ```
@@ -33,14 +33,14 @@ inputs:
 
 | 参数名称    | 必选 | 类型        |         默认值          | 描述                                       |
 | ----------- | :--: | :---------- | :---------------------: | :----------------------------------------- |
-| region      |  否  | string      |     `ap-guangzhou`      | 工作流所在区域                             |
 | src         |  是  | [Src](#Src) |                         | 指定当前需要上传的包含工作流配置文件的目录 |
 | name        |  是  | string      |                         | 工作流名称                                 |
 | definition  |  是  | string      |                         | 工作流配置 json 文件路径，或者 JSON 字符串 |
+| roleArn     |  是  | string      |                         | 运行角色 RoleArn                           |
+| region      |  否  | string      |     `ap-guangzhou`      | 工作流所在区域                             |
 | chineseName |  否  | string      |      `serverless`       | 中文名称                                   |
 | description |  否  | string      | `Created By Serverless` | 备注                                       |
 | type        |  否  | string      |       `STANDARD`        | 工作流类型                                 |
-| role        |  否  | string      |                         | 运行角色，如果不配置，会自动创建           |
 | enableCls   |  否  | boolean     |         `false`         | 是否启动日志投递                           |
 | input       |  否  | string      |          `''`           | 默认运行参数                               |
 
@@ -49,8 +49,6 @@ inputs:
 ## 权限说明
 
 通常 `asw` 组件的运行依赖 `SLS_QcsRole` 角色授权操作云端资源，如果需要使用本组件，需要给 `SLS_QcsRole` 角色添加 `QcloudASWFullAccess` 策略。
-
-使用此组件时，用户一般需要配置 `role` 参数，来指定创建的工作流依赖运行的角色，如果不配置该参数，组件会尝试创建符合条件的角色（角色命名规则为 `[工作流名称]_[账号AppId]_[8位随机应为字符]`），但是需要保证 `SLS_QcsRole` 角色含有创建角色策略 `QcloudCamRoleFullAccess`。
 
 ## Src
 

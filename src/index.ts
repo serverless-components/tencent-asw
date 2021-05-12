@@ -32,7 +32,6 @@ export class ServerlessComponent extends Component<State> {
 
     const credentials = this.getCredentials();
 
-    inputs.appId = this.getAppId();
     const { region, newInputs } = await formatInputs(inputs, this);
 
     const asw = new Asw(credentials, region);

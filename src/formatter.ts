@@ -25,13 +25,12 @@ export const formatInputs = async (inputs: Inputs, instance: Component<State>) =
   const newInputs: Inputs = Object.assign(inputs, {
     definition: definition,
     name: inputs.name,
-    role: inputs.role || instance.state.roleName,
+    roleArn: inputs.roleArn,
     type: inputs.type || CONFIGS.type,
     chineseName: inputs.chineseName || CONFIGS.chineseName,
     description: inputs.description || CONFIGS.description,
     enableCls: inputs.enableCls ?? CONFIGS.enableCls,
     input: inputs.input,
-    appId: inputs.appId,
   });
 
   return {

@@ -8,14 +8,12 @@ export interface Inputs {
   src?: string;
   definition: string;
   name: string;
-  role?: string;
+  roleArn: string;
   type?: string;
   chineseName?: string;
   description?: string;
   enableCls?: boolean;
   input?: string;
-
-  appId?: string;
 
   executeName?: string;
 
