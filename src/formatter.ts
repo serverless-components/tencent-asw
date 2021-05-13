@@ -14,12 +14,25 @@ export const formatInputs = async (inputs: Inputs, instance: Component<State>) =
     ({ definition } = inputs);
   } catch (e) {
     const sourcePath = await instance.unzip(inputs.src!);
-    console.log('sourcePath', sourcePath);
 
     const definitionPath = join(sourcePath, inputs.definition);
-    console.log('definitionPath', definitionPath);
 
     definition = readFileSync(definitionPath, 'utf-8');
+  }
+
+  // read input json
+  let inputStr = '';
+  if (inputs.input) {
+    try {
+      JSON.parse(inputs.input);
+      inputStr = inputs.input;
+    } catch (e) {
+      const sourcePath = await instance.unzip(inputs.src!);
+
+      const inputPath = join(sourcePath, inputs.input);
+
+      inputStr = readFileSync(inputPath, 'utf-8');
+    }
   }
 
   const newInputs: Inputs = Object.assign(inputs, {
@@ -30,7 +43,7 @@ export const formatInputs = async (inputs: Inputs, instance: Component<State>) =
     chineseName: inputs.chineseName || CONFIGS.chineseName,
     description: inputs.description || CONFIGS.description,
     enableCls: inputs.enableCls ?? CONFIGS.enableCls,
-    input: inputs.input,
+    input: inputStr,
   });
 
   return {

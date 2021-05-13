@@ -31,20 +31,20 @@ inputs:
 
 主要的参数
 
-| 参数名称    | 必选 | 类型        |         默认值          | 描述                                       |
-| ----------- | :--: | :---------- | :---------------------: | :----------------------------------------- |
-| src         |  是  | [Src](#Src) |                         | 指定当前需要上传的包含工作流配置文件的目录 |
-| name        |  是  | string      |                         | 工作流名称                                 |
-| definition  |  是  | string      |                         | 工作流配置 json 文件路径，或者 JSON 字符串 |
-| roleArn     |  是  | string      |                         | 运行角色 RoleArn                           |
-| region      |  否  | string      |     `ap-guangzhou`      | 工作流所在区域                             |
-| chineseName |  否  | string      |      `serverless`       | 中文名称                                   |
-| description |  否  | string      | `Created By Serverless` | 备注                                       |
-| type        |  否  | string      |       `STANDARD`        | 工作流类型                                 |
-| enableCls   |  否  | boolean     |         `false`         | 是否启动日志投递                           |
-| input       |  否  | string      |          `''`           | 默认运行参数                               |
+| 参数名称    | 必选 | 类型        |         默认值          | 描述                                         |
+| ----------- | :--: | :---------- | :---------------------: | :------------------------------------------- |
+| src         |  是  | [Src](#Src) |                         | 指定当前需要上传的包含工作流配置文件的目录   |
+| name        |  是  | string      |                         | 工作流名称                                   |
+| definition  |  是  | string      |                         | 工作流配置 json 文件路径，或者 JSON 字符串   |
+| roleArn     |  是  | string      |                         | 运行角色 RoleArn                             |
+| region      |  否  | string      |     `ap-guangzhou`      | 工作流所在区域                               |
+| chineseName |  否  | string      |      `serverless`       | 中文名称                                     |
+| description |  否  | string      | `Created By Serverless` | 备注                                         |
+| type        |  否  | string      |       `STANDARD`        | 工作流类型                                   |
+| enableCls   |  否  | boolean     |         `false`         | 是否启动日志投递                             |
+| input       |  否  | string      |          `''`           | 默认运行参数 json 文件路径，或者 JSON 字符串 |
 
-> 注意：如果指定 `definition` 为 json 文件路径，必须制定 src.src 为该 json 文件目录，如果 `definition` 为 JSON 字符串，可以不配置 `src`
+> 注意：如果指定 `definition` 或者 `input` 为 json 文件路径，必须制定 `src.src` 为该 json 文件目录，如果 `definition` 和 `input` 同时为 JSON 字符串，可以不配置 `src`
 
 ## 权限说明
 

@@ -10,6 +10,11 @@
 		"World": {
 			"Type": "Pass",
 			"Comment": "传递",
+			"Next": "Scf"
+		},
+		"Scf": {
+			"Type": "Pass",
+			"Comment": "传递",
 			"End": true
 		}
 	}
