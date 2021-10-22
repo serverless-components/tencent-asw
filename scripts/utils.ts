@@ -18,7 +18,7 @@ export function getComponentConfig(version: string): ComponentConfig {
     version,
     author: 'Tencent Cloud, Inc.',
     org: 'Tencent Cloud, Inc.',
-    description: `Deploy ${COMPONENT_NAME} onto Tencent.`,
+    description: `ASW 组件，允许用户创建部署应用与服务编排工作流(ASW)实例。配合其他组件来协调分布式任务执行。`,
     keywords: `tencent, serverless, asw`,
     repo: `https://github.com/serverless-components/tencent-${COMPONENT_NAME}`,
     readme: `https://github.com/serverless-components/tencent-${COMPONENT_NAME}/tree/master/README.md`,
